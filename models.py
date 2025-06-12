@@ -18,5 +18,12 @@ class Book(db.Model):
     author = db.Column(db.Text, nullable=False)
     description = db.Column(db.Text, nullable=False)
     category_id = db.Column(db.Integer,  db.ForeignKey("categories.id"),nullable=False)
-
     created_at = db.Column(db.TIMESTAMP) 
+
+class User(db.Model):
+    __tablename__= "users"
+    id =db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text, nullable=False)
+    email = db.Column(db.Text, nullable=False)
+    password = db.Column(db.Text, nullable=False)
+    book_id = db.Column(db.Text, db.ForeignKey("users.id"), nullable=False)
