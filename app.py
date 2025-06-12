@@ -15,6 +15,7 @@ from flask_migrate import Migrate
 from models import db
 from Resources.categories import CategoryResource
 from Resources.book import BookResources
+from Resources.user import UserResources
 
 app = Flask(__name__)
 
@@ -143,3 +144,7 @@ db.init_app(app)
 
 api.add_resource(CategoryResource, "/categories", "/categories/<int:id>")
 api.add_resource(BookResources, "/books", "/books/<int:id>")
+api.add_resource(UserResources, "/users", "/users/<int:id>")
+
+if __name__ == "__main__":
+    app.run(port=8000, debug=True)
