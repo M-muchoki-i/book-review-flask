@@ -13,8 +13,8 @@ from flask import Flask
 from flask_restful import  Api,Resource
 from flask_migrate import Migrate
 from models import db
-from Resources.category import CategoryResource
-from Resources.book import BookResource
+from Resources.categories import CategoryResource
+from Resources.book import BookResources
 
 app = Flask(__name__)
 
@@ -142,4 +142,4 @@ db.init_app(app)
 
 
 api.add_resource(CategoryResource, "/categories", "/categories/<int:id>")
-api.add_resource(BookResource, "/books", "/books/<int:id>")
+api.add_resource(BookResources, "/books", "/books/<int:id>")
